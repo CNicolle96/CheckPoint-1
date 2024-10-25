@@ -11,13 +11,19 @@ fi
 
 # On traite chaque argument 1 à 1
 for i in $*
-do
+ do
+ 	# véfication de la syntaxe du nom
+	if ! [[ "$i" =~ ^[a-z][a-zA-Z0-9_]*$ ]]
+	then 
+		echo "Le nom d'utilisateur $i ne respecte pas les règles de nom (uniquement lettres, chiffre ou _ et doit absolument commencer par une minuscule) ."
+		continue
+	fi
 	# on vérifie si l'utilisateur est dans la liste des utilisateurs locaux
-	if awk -F: '{ print $1}' /etc/passwd | grep -w $i > /dev/null
+	if awk -F: '{ print $1}' /etc/passwd | grep -w "$i" > /dev/null
 	then
 		echo "L'utilisateur $i existe déjà"
 	else
-		if sudo useradd $i  # on crée l'utilisateur sans mot de passe et on vérifie la sortie
+		if sudo useradd "$i"  # on crée l'utilisateur sans mot de passe et on vérifie la sortie
 		then
 			echo "L'utilisateur $i a été créé."
 		else
