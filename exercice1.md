@@ -3,7 +3,7 @@
 Aperçu des partitions et lancement de la commande pour créer de nouvelles partitions :  
 ![Premier lsblk et fdisk](./Images/lsblk1.png)  
 Création des partions dans le ```/dev/sdb``` :  (avec à la fin un ```w``` pour sortir et écrire la table de partition)  
-![Commande dans le fdisk](./Images/fdisk.png)  
+![Commande dans le fdisk](./Images/fdisk2.png)  
 Désactivation du Swap de base :
 ![Arrêt swap](./Images/arret_swap.png)  
 Formatage des différentes partitions avec leur type et leur label :  
@@ -23,4 +23,4 @@ Création du dossier et lancement de la commande pour modifier le fichier ```/et
 Modification du fichier en question :  
 ![Modification de /etc/fcstab](./Images/fcstab.png)  
 Vérification du montage grâce à ```mount -a```.  
-![Vérification](./Images/mount.png)  
+![Vérification](./Images/verif_mount.png)  
